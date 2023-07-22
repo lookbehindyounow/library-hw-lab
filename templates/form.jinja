@@ -1,0 +1,29 @@
+{% extends 'base.jinja' %} {% block content %}
+  
+<h1>{{ title }} !!!</h1>
+
+<form action="/" method="post">
+
+    <label for="name_of_event">Name of event</label>
+    <input type="text" name="name_of_event" id="name_of_event"> <br>
+
+    <label for="description">Description</label>
+    <textarea name="description" id="description" rows="3" cols="30"></textarea> <br>
+
+    <label for="number_of_guests">Number of guests</label>
+    <input type="number" name="number_of_guests" id="number_of_guests"><br>
+
+    <label for="event_location">Event Location</label>
+    <input type="text" name="event_location" id="event_location"><br>
+
+    <label for="event_date">Event date</label>
+    <input type="date" name="event_date" id="event_date">
+
+    <label for="recurring">Will this event recur?</label>
+    <input type="checkbox" name="recurring" id="recurring" value="off">
+
+    <input type="submit" value="Submit">
+
+</form>
+
+{% endblock content %}
