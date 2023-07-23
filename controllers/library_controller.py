@@ -31,12 +31,10 @@ def remove_book(index):
     del books[int(index)]
     return redirect('/')
 
-@events_blueprint.route('/books/<index>/check_out',methods=["POST"])
-def check_out(index):
-    books[int(index)].check_out(True)
-    return redirect(f"/books/{index}")
-
-@events_blueprint.route('/books/<index>/check_in',methods=["POST"])
-def check_in(index):
-    books[int(index)].check_out(False)
+@events_blueprint.route('/books/<index>/<copy>',methods=["POST"])
+def book_actions(index,copy):
+    if copy=="add":
+        books[int(index)].add_copy()
+    else:
+        books[int(index)].check_in_or_out(int(copy))
     return redirect(f"/books/{index}")

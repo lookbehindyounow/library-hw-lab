@@ -4,8 +4,8 @@
   {%for book in books%}  
     <li>
       {{book.author}} - <a href="/books/{{loop.index0}}"><b>{{book.title}}</b></a>
-      {%if book.checked_out%}
-        <span>~checked out~</span>
+      {%if false in book.checked_out%}
+        <span>~available~</span>
       {%endif%}
       <form action="/books/{{loop.index0}}/delete" method="post"><input type="submit" value="Remove"></form>
     </li>
