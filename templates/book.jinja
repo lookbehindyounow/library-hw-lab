@@ -2,7 +2,9 @@
 <h1>{{book.title}}</h1>
 <h3>{{book.author}}</h3>
 <p>{{book.genre}}</p><hr/>
-<p>find a way to get a big blurb here from wiki or smth</p>
+{%if book.blurb|length >0%}
+    <p>{{book.blurb[0]}}</p>
+{% endif %}
 <ul>
     {%for copy in book.checked_out%} {# buttons to check in/out, add & remove copies #}
     <li>

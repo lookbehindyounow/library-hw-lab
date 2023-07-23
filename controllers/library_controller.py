@@ -1,4 +1,4 @@
-from flask import render_template, Blueprint, request, redirect
+from flask import Blueprint, render_template, request, redirect
 from models.book_list import books, Book
 
 events_blueprint=Blueprint("books",__name__)
