@@ -3,18 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='stylesheet.css')}}">
     <title>{{title}}</title>
 </head>
 <body>
     <nav>
         <ul>
             <li><a href="/">Home</a></li>
-            <li><a href="/form">Add Book</a></li>
-            <li>3</li>
+            <li><a href="/form">Add book</a></li>
         </ul>
     </nav>
-    {%block content%}
-        
-    {%endblock content%}
+    {%block content%}{%endblock content%}
 </body>
 </html>
