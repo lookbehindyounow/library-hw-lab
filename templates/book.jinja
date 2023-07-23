@@ -4,7 +4,7 @@
 <p>{{book.genre}}</p><hr/>
 <p>find a way to get a big blurb here from wiki or smth</p>
 <ul>
-    {%for copy in book.checked_out%}
+    {%for copy in book.checked_out%} {# buttons to check in/out, add & remove copies #}
     <li>
         <label>copy {{loop.index}}</label>
         {%if copy%}

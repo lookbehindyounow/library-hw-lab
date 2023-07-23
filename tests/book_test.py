@@ -28,6 +28,7 @@ class TestBook(unittest.TestCase):
         # The purpose of the second half of this test is to ensure delete_copy removes the specified copy & not just any copy
     
     def test_check_in_or_out(self):
-        self.assertFalse(self.book.checked_out[0])
         self.book.check_in_or_out(0)
         self.assertTrue(self.book.checked_out[0])
+        self.book.check_in_or_out(0)
+        self.assertFalse(self.book.checked_out[0])

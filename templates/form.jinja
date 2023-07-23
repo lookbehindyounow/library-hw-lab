@@ -1,9 +1,9 @@
 {%extends 'base.jinja'%}{%block content%}
 <h1>Add Book</h1>
 <form action="/books/{{books|length}}" method="post">
-    {#^^Go to the page indexed by the book that's yet to be created. If this form is submitted with duplicate information or if the
+    {# ^^Go to the page indexed by the book that's yet to be created. If this form is submitted with duplicate information or if the
     form data is resubmitted by reloading the book page just after adding a new book, this would cause an unwanted duplication &
-    sometimes an indexing error. These are handled in the library controller in add_book.#}
+    sometimes an indexing error. These are handled in the library controller in add_book. #}
     
     <label for="title">Title</label>
     <input type="text" name="title" id="title"><br/>

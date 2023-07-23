@@ -4,7 +4,7 @@
   {%for book in books%}  
     <li>
       {{book.author}} - <a href="/books/{{loop.index0}}"><b>{{book.title}}</b></a>
-      {%if false in book.checked_out%}
+      {%if false in book.checked_out%} {# if any copies of the book are available then the book is available #}
         <span>~available~</span>
       {%endif%}
       <form action="/books/{{loop.index0}}/delete" method="post"><input type="submit" value="Delete"></form>
