@@ -1,3 +1,9 @@
 {%extends 'base.jinja'%}{%block content%}
-    
+<h1>{{title}}</h1>
+{%if book.checked_out%}
+    <span>~checked out~</span>
+{%endif%}
+<h3>{{book.author}}</h3>
+<p>{{book.genre}}</p><hr/>
+<p>find a way to get a big blurb here from wiki or smth</p>
 {%endblock content%}
