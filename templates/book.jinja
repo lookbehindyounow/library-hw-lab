@@ -1,7 +1,7 @@
 {%extends 'base.jinja'%}{%block content%}
 <h1>{{title}}</h1>
 {%if book.checked_out%}
-    <span>~checked out~</span>
+    <span>~checked out~</span> {#needs a way to change this variable from this page#}
 {%endif%}
 <h3>{{book.author}}</h3>
 <p>{{book.genre}}</p><hr/>
