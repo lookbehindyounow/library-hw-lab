@@ -10,3 +10,9 @@ class TestBook(unittest.TestCase):
         self.assertEqual(self.book.author,"Jorjor Well")
         self.assertEqual(self.book.genre,"Year")
         self.assertEqual(self.book.checked_out,False)
+    
+    def test_check_out(self):
+        self.book.check_out(True)
+        self.assertTrue(self.book.checked_out)
+        self.book.check_out(False)
+        self.assertFalse(self.book.checked_out)

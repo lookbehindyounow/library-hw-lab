@@ -5,3 +5,6 @@ class Book():
         self.author=author
         self.genre=genre
         self.checked_out=checked_out
+    
+    def check_out(self,out):
+        self.checked_out=out

@@ -1,9 +1,12 @@
 {%extends 'base.jinja'%}{%block content%}
-<h1>{{title}}</h1>
-{%if book.checked_out%}
-    <span>~checked out~</span> {#needs a way to change this variable from this page#}
+<h1>{{books[index].title}}</h1>
+{%if books[index].checked_out%}
+    <span>~checked out~</span>
+    <form action="/books/{{index}}/check_in" method="post"><input type="submit" value="check in"></form>
+{%else%}
+    <form action="/books/{{index}}/check_out" method="post"><input type="submit" value="check out"></form>
 {%endif%}
-<h3>{{book.author}}</h3>
-<p>{{book.genre}}</p><hr/>
+<h3>{{books[index].author}}</h3>
+<p>{{books[index].genre}}</p><hr/>
 <p>find a way to get a big blurb here from wiki or smth</p>
 {%endblock content%}
