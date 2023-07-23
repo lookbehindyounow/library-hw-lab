@@ -12,20 +12,21 @@ def call_book(index):
     return render_template('book.jinja',title=books[int(index)].title,book=books[int(index)])
 
 @events_blueprint.route('/form')
-def form():
-    return render_template('form.jinja',title='Add Book',books=books)
+def form(duplicate=False):
+    return render_template('form.jinja',title='Add Book',books=books,duplicate=duplicate)
 
 @events_blueprint.route('/books/<index>',methods=["POST"])
 def add_book(index):
-    book=Book(request.form["title"],request.form["author"],request.form["genre"],bool(request.form["checked"]))
-    # LOGIC NEEDS FIXED IN LINE BELOW
-    if request.form["title"] not in [book.title for book in books] or request.form["author"] not in [book.author for book in books]:
-        books.append(book)
+    duplicate_index=[i for i in range(len(books)) if request.form["title"]==books[i].title and request.form["author"]==books[i].author]
+    if len(duplicate_index)==0: # if the entry isn't already in the library
+        books.append(Book(request.form["title"],request.form["author"],request.form["genre"],bool(request.form["checked"])))
         return render_template('book.jinja',title=books[int(index)].title,book=books[int(index)])
-    return redirect('/form') # should throw up a duplicate book error
+    elif int(index)==len(books): # this will happen if a new form is submitted with a duplicate book
+        return form(True)
+    else:
+        return call_book(index) # this will happen if the book page is reloaded just after it's been added
 
 @events_blueprint.route('/books/<index>/delete',methods=["POST"])
 def remove_book(index):
-    print(index,len(books),[book.title for book in books])
     del books[int(index)]
     return redirect('/')

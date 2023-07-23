@@ -17,5 +17,8 @@
     <input type="radio" id="available" name="checked" value="" checked><br/>
 
     <input type="submit" value="Submit">
+    {%if duplicate%}
+        <p>Book already in library</p>
+    {%endif%}
 </form>
 {% endblock content %}
