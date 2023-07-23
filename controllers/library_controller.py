@@ -19,7 +19,7 @@ def form(duplicate=False):
 def add_book(index):
     duplicate_index=[i for i in range(len(books)) if request.form["title"]==books[i].title and request.form["author"]==books[i].author]
     if len(duplicate_index)==0: # if the entry isn't already in the library
-        books.append(Book(request.form["title"],request.form["author"],request.form["genre"],bool(request.form["checked"])))
+        books.append(Book(request.form["title"],request.form["author"],request.form["genre"]))
         return render_template('book.jinja',books=books,index=int(index))
     elif int(index)==len(books): # this will happen if a new form is submitted with a duplicate book
         return form(True)
