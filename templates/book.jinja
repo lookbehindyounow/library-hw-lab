@@ -1,10 +1,10 @@
 {%extends 'base.jinja'%}{%block content%}
-<h1>{{books[index].title}}</h1>
-<h3>{{books[index].author}}</h3>
-<p>{{books[index].genre}}</p><hr/>
+<h1>{{book.title}}</h1>
+<h3>{{book.author}}</h3>
+<p>{{book.genre}}</p><hr/>
 <p>find a way to get a big blurb here from wiki or smth</p>
 <ul>
-    {%for copy in books[index].checked_out%}
+    {%for copy in book.checked_out%}
     <li>
         <label>copy {{loop.index}}</label>
         {%if copy%}
@@ -13,6 +13,7 @@
         <form action="/books/{{index}}/{{loop.index0}}" method="post">
             <input type="submit" value="check {%if copy%}in{%else%}out{%endif%}">
         </form>
+        <form action="/books/{{index}}/{{loop.index0}}/delete" method="post"><input type="submit" value="delete copy"></form>
     </li>
     {% endfor %}
 </ul>

@@ -9,5 +9,8 @@ class Book():
     def add_copy(self):
         self.checked_out.append(False)
     
+    def delete_copy(self,copy):
+        del self.checked_out[copy]
+    
     def check_in_or_out(self,copy):
         self.checked_out[copy]=not self.checked_out[copy]

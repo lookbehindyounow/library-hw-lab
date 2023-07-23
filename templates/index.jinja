@@ -7,7 +7,7 @@
       {%if false in book.checked_out%}
         <span>~available~</span>
       {%endif%}
-      <form action="/books/{{loop.index0}}/delete" method="post"><input type="submit" value="Remove"></form>
+      <form action="/books/{{loop.index0}}/delete" method="post"><input type="submit" value="Delete"></form>
     </li>
   {%endfor%}
 </ul>
