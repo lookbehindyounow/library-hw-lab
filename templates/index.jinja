@@ -3,7 +3,7 @@
 <ul>
   {%for book in books%}  
     <li>
-      {{book.author}} - <b>{{book.title}}</b>
+      {{book.author}} - <a href="/books/{{loop.index0}}"><b>{{book.title}}</b></a>
       {%if book.checked_out%}
         <span>~checked out~</span>
       {%endif%}
