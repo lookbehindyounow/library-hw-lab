@@ -1,24 +1,27 @@
 {%extends 'base.jinja'%}{%block content%}
-<h1>{{book.title}}</h1>
-<h3>{{book.author}}</h3>
-<p>{{book.genre}}</p><hr/>
+<h1 class="title">{{book.title}}</h1>
+<h3 class="author">{{book.author}}</h3>
+<p class="genre">{{book.genre}}</p><hr/>
 {%if book.blurb|length >0%}
-    <p>{{book.blurb[0]}}</p>
+    <p class="blurb">{{book.blurb[0]}}</p>
 {% endif %}
-<ul>
+<ul class="list copies">
     {%for copy in book.checked_out%} {# buttons to check in/out, add & remove copies #}
-    <li>
-        <label>copy {{loop.index}}</label>
+    <li class="copy">
+        <label class="copy__number">copy {{loop.index}}</label>
         {%if copy%}
-            <span>~checked out~</span>
+            <span class="copy--checked">~checked out~</span>
         {%endif%}
         <form action="/books/{{index}}/{{loop.index0}}" method="post">
-            <input type="submit" value="check {%if copy%}in{%else%}out{%endif%}">
+            <input class="button" type="submit" value="check {%if copy%}in{%else%}out{%endif%}">
         </form>
-        <form action="/books/{{index}}/{{loop.index0}}/delete" method="post"><input type="submit" value="delete copy"></form>
+        <form action="/books/{{index}}/{{loop.index0}}/delete" method="post">
+            <input class="button delete" type="submit" value="delete">
+        </form>
     </li>
     {% endfor %}
 </ul>
 <br/>
-<form action="/books/{{index}}/add" method="post"><input type="submit" value="add copy"></form>
+<form action="/books/{{index}}/add" method="post"><input class="button" type="submit" value="add copy"></form>
+{# find a way to get the add copy button to have a plus like the add book link #}
 {%endblock content%}

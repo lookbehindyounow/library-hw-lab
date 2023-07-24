@@ -1,13 +1,13 @@
 {%extends 'base.jinja'%}{%block content%}
-<h1>Library</h1>
-<ul>
+<h1 class="title">Library</h1>
+<ul class="list">
   {%for book in books%}  
-    <li>
-      {{book.author}} - <a href="/books/{{loop.index0}}"><b>{{book.title}}</b></a>
+    <li class="book">
+      <span class="book__link">{{book.author}} - </span><a class="book__link book__title" href="/books/{{loop.index0}}"><b>{{book.title}}</b></a>
       {%if false in book.checked_out%} {# if any copies of the book are available then the book is available #}
-        <span>~available~</span>
+        <span class="book--available">~available~</span>
       {%endif%}
-      <form action="/books/{{loop.index0}}/delete" method="post"><input type="submit" value="Delete"></form>
+      <form action="/books/{{loop.index0}}/delete" method="post"><input class="button delete" type="submit" value="delete"></form>
     </li>
   {%endfor%}
 </ul>

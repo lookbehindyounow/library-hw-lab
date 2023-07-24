@@ -11,10 +11,11 @@ class Book():
         self.author=author
         self.genre=genre
         self.checked_out=[False]
-        # this condition is to save this loop running 58k * 58k times if you're using the experimental (non-working) book list
+        # this condition is to avoid this loop doing 58k iterations of the list comp doing 58k iterations
+        # if you're using the book list from the blurbs database
         if blurb is None:
             self.blurb=[book[2] for book in titles_blurbs if title.lower()==book[0].lower() and author.lower()==book[1].lower()]
-            # if the book added is in the blurbs database, add the blurb to the book
+            # if the book added is in the blurbs database, add the blurb to the book object
     
     def add_copy(self):
         self.checked_out.append(False)
