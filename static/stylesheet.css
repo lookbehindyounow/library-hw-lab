@@ -5,6 +5,11 @@
 }
 
 .title {
+    font-style: italic;
+}
+
+.container {
+    padding: 0 60px;
 }
 
 /* nav */
